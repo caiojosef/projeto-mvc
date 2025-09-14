@@ -1,4 +1,6 @@
-<!-- Partial de mensagens (placeholder) -->
-<?php if (!empty($flash)): ?>
-  <div class="flash"><?= htmlspecialchars($flash['msg'] ?? '') ?></div>
+<?php if (isset($_SESSION['flash'])): ?>
+  <div class="flash <?= $_SESSION['flash']['tipo'] ?>">
+    <?= $_SESSION['flash']['mensagem'] ?>
+  </div>
+  <?php unset($_SESSION['flash']); ?>
 <?php endif; ?>
